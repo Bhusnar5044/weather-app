@@ -1,9 +1,9 @@
-const OPENWEATHER = import.meta.env.VITE_OPENWEATHER;
-const MAPBOX_API = import.meta.env.VITE_MAPBOX_API;
-const VITE_UNSPLASH_API = import.meta.env.VITE_UNSPLASH_API;
+const OPENWEATHER = process.env.VITE_OPENWEATHER;
+const MAPBOX_API = process.env.VITE_MAPBOX_API;
+const VITE_UNSPLASH_API = process.env.VITE_UNSPLASH_API;
 
 export const urls = {
-    weather: OPENWEATHER,
-    geo: MAPBOX_API,
-    unsplash: VITE_UNSPLASH_API,
+    weather: OPENWEATHER ?? '',
+    geo: MAPBOX_API ?? '',
+    unsplash: VITE_UNSPLASH_API ?? '',
 };

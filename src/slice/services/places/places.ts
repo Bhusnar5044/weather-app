@@ -3,7 +3,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { axiosBaseQuery } from '@utils/axiosBaseQuery';
 import { createUrlWithParams } from '@utils/createUrlWithParams';
 import { createUrlWithParamsTypes } from '@utils/types';
-const VITE_MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
+const VITE_MAPBOX_ACCESS_TOKEN = process.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 export const placesApi = createApi({
     reducerPath: 'placesApi',
@@ -20,7 +20,7 @@ export const placesApi = createApi({
                     ...payload,
                     params: [
                         ...payload.params,
-                        { name: 'access_token', value: VITE_MAPBOX_ACCESS_TOKEN },
+                        { name: 'access_token', value: VITE_MAPBOX_ACCESS_TOKEN ?? '' },
                         { name: 'language', value: 'es' },
                         { name: 'limit', value: 5 },
                     ],
@@ -33,7 +33,7 @@ export const placesApi = createApi({
                 url: createUrlWithParams({
                     path: `${payload}.json`,
                     params: [
-                        { name: 'access_token', value: VITE_MAPBOX_ACCESS_TOKEN },
+                        { name: 'access_token', value: VITE_MAPBOX_ACCESS_TOKEN ?? '' },
                         { name: 'language', value: 'es' },
                         { name: 'limit', value: 5 },
                     ],

@@ -1,3 +1,4 @@
+import { initialState } from '@slice';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
@@ -6,7 +7,6 @@ import { FC, PropsWithChildren, ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
-import { initialState } from 'slice';
 
 export const mockAxios = new MockAdapter(axios);
 

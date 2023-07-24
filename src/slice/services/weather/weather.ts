@@ -3,7 +3,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import { axiosBaseQuery } from '@utils/axiosBaseQuery';
 import { createUrlWithParams } from '@utils/createUrlWithParams';
 import { createUrlWithParamsTypes } from '@utils/types';
-const VITE_APP_ID = import.meta.env.VITE_APP_ID;
+const VITE_APP_ID = process.env.VITE_APP_ID;
 
 export const weatherApi = createApi({
     reducerPath: 'weatherApi',
@@ -18,7 +18,7 @@ export const weatherApi = createApi({
             query: (payload: createUrlWithParamsTypes) => ({
                 url: createUrlWithParams({
                     ...payload,
-                    params: [...payload.params, { name: 'appid', value: VITE_APP_ID }],
+                    params: [...payload.params, { name: 'appid', value: VITE_APP_ID ?? '' }],
                 }),
             }),
             providesTags: ['currentWeather'],
@@ -27,7 +27,7 @@ export const weatherApi = createApi({
             query: (payload) => ({
                 url: createUrlWithParams({
                     ...payload,
-                    params: [...payload.params, { name: 'appid', value: VITE_APP_ID }],
+                    params: [...payload.params, { name: 'appid', value: VITE_APP_ID ?? '' }],
                 }),
             }),
             providesTags: ['forecast'],

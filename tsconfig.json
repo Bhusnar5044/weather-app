@@ -18,10 +18,7 @@
             "@utils": ["utils"],
             "@utils/*": ["utils/*"],
             "@hooks/*": ["hooks/*"],
-            "@context/*": ["context/*"],
-            "@test-utils": ["utils/test-utils"],
-            "@theme": ["theme"],
-            "@theme/*": ["theme/*"]
+            "@test-utils": ["utils/test-utils"]
         },
 
         /* Bundler mode */

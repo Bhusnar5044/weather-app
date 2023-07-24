@@ -2,3 +2,5 @@ node_modules
 dist
 coverage
 vite.config.js
+postcss.config.cjs
+tailwind.config.cjs

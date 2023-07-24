@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render properly 1`] = `
+<div>
+  <div
+    class="h-18 bg-gray-800"
+  >
+    <div
+      class="flex items-center p-4 ml-10 w-l"
+    >
+      <a
+        class="mr-2"
+        href="/"
+      >
+        WEATHER-APP
+      </a>
+    </div>
+  </div>
+</div>
+`;

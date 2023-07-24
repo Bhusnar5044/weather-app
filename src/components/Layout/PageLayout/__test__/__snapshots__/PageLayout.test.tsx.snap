@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayout component should render properly 1`] = `
+<div>
+  <div
+    class="bg-dark h-screen w-screen "
+  >
+    <main
+      class="flex flex-col gap-2 w-full"
+    >
+      <p>
+        dummy Text
+      </p>
+    </main>
+  </div>
+</div>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContent component should render properly 1`] = `
+<div>
+  <main
+    class="flex flex-col gap-2 w-full"
+  >
+    Demo PageContent
+  </main>
+</div>
+`;

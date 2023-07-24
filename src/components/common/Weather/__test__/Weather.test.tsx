@@ -1,9 +1,9 @@
-import { render } from '@test-utils';
+import { renderWithStore } from '@test-utils';
 import { Weather } from '../Weather';
 
 describe('Weather', () => {
     it('should render properly', () => {
-        const { container } = render(<Weather />);
+        const { container } = renderWithStore(<Weather />);
         expect(container).toMatchSnapshot();
     });
 });

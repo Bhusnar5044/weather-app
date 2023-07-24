@@ -37,6 +37,7 @@ export const useLocation = () => {
                 },
                 function (error) {
                     // paris added by default
+                    console.log(error);
                     dispatch(setLocation({ lat: 48.85341, lon: 2.3488 }));
                 },
             );

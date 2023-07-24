@@ -1,33 +1,28 @@
-import { renderWithStoreAndRouter, screen } from '@test-utils';
+import { initialState } from '@slice';
+import { mockStore, render, screen, waitFor } from '@test-utils';
+import * as weatherMoc from '@utils/testData/weatherCurrentMock.json';
 import { Provider } from 'react-redux';
-import * as router from 'react-router';
-import { MemoryRouter } from 'react-router-dom';
-import reduxMockStore from 'redux-mock-store';
-import { initialState } from 'slice';
 import { Dashboard } from '../Dashboard';
 
-const mockStore = reduxMockStore();
-
 const store = mockStore({
-    ...initialState,
+    weather: {
+        ...initialState.weather,
+        weather: weatherMoc,
+    },
+    weatherApi: {},
 });
 const renderer = () =>
-    renderWithStoreAndRouter(
+    render(
         <Provider store={store}>
-            <MemoryRouter>
-                <Dashboard />
-            </MemoryRouter>
+            <Dashboard />
         </Provider>,
     );
 describe('Dashboard', () => {
-    const navigate = jest.fn();
-
-    beforeEach(() => {
-        jest.spyOn(router, 'useNavigate').mockImplementation(() => navigate);
-    });
-    it('should render properly', () => {
+    it('should render properly', async () => {
         const { container } = renderer();
-        expect(container).toMatchSnapshot();
-        expect(screen.getByText('Dashboard')).toBeInTheDocument();
+        await waitFor(() => {
+            expect(container).toMatchSnapshot();
+            expect(screen.findByText(/The temperature you actually feel/)).toBeInTheDocument();
+        });
     });
 });

@@ -6,12 +6,15 @@ import MockAdapter from 'axios-mock-adapter';
 import { FC, PropsWithChildren, ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 export const mockAxios = new MockAdapter(axios);
 
-const mockStore = configureStore([]),
-    store = mockStore({ ...initialState });
+const middlewares = [thunk];
+
+export const mockStore = configureMockStore(middlewares);
+const store = mockStore({ ...initialState });
 
 const WithRouter: FC<PropsWithChildren> = (props) => <MemoryRouter>{props.children}</MemoryRouter>;
 

@@ -1,18 +1,22 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { toastSlice, initialState as toastSliceInitialState } from './toastSlice';
+import { placesApi } from './services/places';
+import { weatherApi } from './services/weather';
+import { weatherSlice, initialState as weatherSliceInitialState } from './weatherSlice';
 
 export const initialState = {
-    toast: toastSliceInitialState,
+    weather: weatherSliceInitialState,
 };
 
 const rootReducer = combineReducers({
-    toast: toastSlice.reducer,
+    weather: weatherSlice.reducer,
+    placesApi: placesApi.reducer,
+    weatherApi: weatherApi.reducer,
 });
 
 export const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(placesApi.middleware, weatherApi.middleware),
 });
 
 export type AppState = ReturnType<typeof store.getState>;

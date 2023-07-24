@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren, memo } from 'react';
-import { PageLayoutStyled } from './PageLayout.styled';
 
-export const PageLayout: FC<PropsWithChildren> = memo((props) => <PageLayoutStyled>{props.children}</PageLayoutStyled>);
+export const PageLayout: FC<PropsWithChildren> = memo((props) => (
+    <div className="bg-dark h-screen w-screen ">{props.children}</div>
+));
 
 PageLayout.displayName = 'PageLayout';

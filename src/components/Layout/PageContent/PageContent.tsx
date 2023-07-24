@@ -1,15 +1,8 @@
-import CircularProgress from '@mui/material/CircularProgress';
 import { FC, memo } from 'react';
-import * as Styled from './PageContent.styled';
 import { Props } from './types';
 
-export const PageContent: FC<Props> = memo(({ isLoading, children }) => {
-    return (
-        <Styled.PageContent>
-            {isLoading && <CircularProgress title="loader" color="inherit" />}
-            {!isLoading && children}
-        </Styled.PageContent>
-    );
+export const PageContent: FC<Props> = memo(({ children }) => {
+    return <main className="flex flex-col gap-2 w-full">{children}</main>;
 });
 
 PageContent.displayName = 'PageContent';
